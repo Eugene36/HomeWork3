@@ -1,7 +1,15 @@
+import Adapter.Headphones;
+import Adapter.Jack35mm;
+import Adapter.JackToUSBAdapter;
+import Adapter.USBC;
 import Builder.Computer;
 import ChainOfResponsibility.CheckHasNumbers;
 import ChainOfResponsibility.CheckSize;
 import ChainOfResponsibility.CheckUppercase;
+import Decorator.BBQDecorator;
+import Decorator.CheeseDecorator;
+import Decorator.Pepperoni;
+import Decorator.Pizza;
 import Proxy.Door;
 import Proxy.ProxyDoor;
 import Proxy.RealDoor;
@@ -45,6 +53,19 @@ public class Main {
 
         System.out.println();
 
+        //5. Decorator
+        Pizza pepperoni = new Pepperoni();
+        Pizza pizza1 = new CheeseDecorator(pepperoni);
+        System.out.println(pizza1.getName());
 
+        Pizza pizza2 = new BBQDecorator(pepperoni);
+        System.out.println(pizza2.getName());
+
+        System.out.println();
+
+        //6. Adapter
+        Jack35mm headphones = new Headphones();
+        USBC adapter = new JackToUSBAdapter(headphones);
+        adapter.connectUSBC();
     }
 }
