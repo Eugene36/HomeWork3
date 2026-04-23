@@ -1,3 +1,4 @@
+import Builder.Computer;
 import ChainOfResponsibility.CheckHasNumbers;
 import ChainOfResponsibility.CheckSize;
 import ChainOfResponsibility.CheckUppercase;
@@ -27,8 +28,10 @@ public class Main {
 
         checkSize.handle("QRJFAO4422");
 
+        System.out.println();
+
         //3. Builder
-
-
+        Computer computer = new Computer.ComputerBuilder("Intel I7 13400", "Gigabyte z690").addDisplay("Asus vzv").addKeyboard("Keyboard").addMouse("a4tech x7").build();
+        System.out.println(computer);
     }
 }
