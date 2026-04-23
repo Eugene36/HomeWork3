@@ -2,6 +2,9 @@ import Builder.Computer;
 import ChainOfResponsibility.CheckHasNumbers;
 import ChainOfResponsibility.CheckSize;
 import ChainOfResponsibility.CheckUppercase;
+import Proxy.Door;
+import Proxy.ProxyDoor;
+import Proxy.RealDoor;
 import Strategy.Restaurant;
 
 public class Main {
@@ -30,8 +33,18 @@ public class Main {
 
         System.out.println();
 
-        //3. Builder
+        //3. Builder (через вложенный статический класс)
         Computer computer = new Computer.ComputerBuilder("Intel I7 13400", "Gigabyte z690").addDisplay("Asus vzv").addKeyboard("Keyboard").addMouse("a4tech x7").build();
         System.out.println(computer);
+
+        System.out.println();
+
+        //4. Proxy
+        Door door = new ProxyDoor(new RealDoor());
+        door.getInto();
+
+        System.out.println();
+
+
     }
 }
